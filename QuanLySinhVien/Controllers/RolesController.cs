@@ -10,108 +10,107 @@ using QuanLySinhVien.Models;
 
 namespace QuanLySinhVien.Controllers
 {
-    [Authorize]
-    public class HocPhansController : Controller
+    public class RolesController : Controller
     {
         private QuanLySinhVienDBcontext db = new QuanLySinhVienDBcontext();
 
-        // GET: HocPhans
+        // GET: Roles
         public ActionResult Index()
         {
-            return View(db.HocPhans.ToList());
+            return View(db.Roles.ToList());
         }
 
-        // GET: HocPhans/Details/5
+        // GET: Roles/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HocPhan hocPhan = db.HocPhans.Find(id);
-            if (hocPhan == null)
+            Role role = db.Roles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(hocPhan);
+            return View(role);
         }
 
-        // GET: HocPhans/Create
+        // GET: Roles/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: HocPhans/Create
+        // POST: Roles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaHocPhan,TenHocPhan,SoTinChi")] HocPhan hocPhan)
+        public ActionResult Create([Bind(Include = "RoleID,RoleName")] Role role)
         {
             if (ModelState.IsValid)
             {
-                db.HocPhans.Add(hocPhan);
+                db.Roles.Add(role);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(hocPhan);
+            return View(role);
         }
 
-        // GET: HocPhans/Edit/5
+        // GET: Roles/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HocPhan hocPhan = db.HocPhans.Find(id);
-            if (hocPhan == null)
+            Role role = db.Roles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(hocPhan);
+            return View(role);
         }
 
-        // POST: HocPhans/Edit/5
+        // POST: Roles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaHocPhan,TenHocPhan,SoTinChi")] HocPhan hocPhan)
+        public ActionResult Edit([Bind(Include = "RoleID,RoleName")] Role role)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hocPhan).State = EntityState.Modified;
+                db.Entry(role).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(hocPhan);
+            return View(role);
         }
 
-        // GET: HocPhans/Delete/5
+        // GET: Roles/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HocPhan hocPhan = db.HocPhans.Find(id);
-            if (hocPhan == null)
+            Role role = db.Roles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(hocPhan);
+            return View(role);
         }
 
-        // POST: HocPhans/Delete/5
+        // POST: Roles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            HocPhan hocPhan = db.HocPhans.Find(id);
-            db.HocPhans.Remove(hocPhan);
+            Role role = db.Roles.Find(id);
+            db.Roles.Remove(role);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

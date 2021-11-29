@@ -12,6 +12,10 @@ namespace QuanLySinhVien.Models
         { 
         }
         public DbSet<HocPhan> HocPhans { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Role> Roles { get; set; }
+
+        
     }
 }
 //DESKTOP-GIPHEE4\SQLEXPRESS
