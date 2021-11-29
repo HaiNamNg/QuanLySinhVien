@@ -133,7 +133,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HocPhansController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhoasController.cs" />
+    <Compile Include="Controllers\LopsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SinhhViensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,12 +156,23 @@
     <Compile Include="Migrations\202111291253383_roleid-account.Designer.cs">
       <DependentUpon>202111291253383_roleid-account.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111291854066_23456.cs" />
+    <Compile Include="Migrations\202111291854066_23456.Designer.cs">
+      <DependentUpon>202111291854066_23456.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111291901258_add sinhvien.cs" />
+    <Compile Include="Migrations\202111291901258_add sinhvien.Designer.cs">
+      <DependentUpon>202111291901258_add sinhvien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Encrytion.cs" />
     <Compile Include="Models\HocPhan.cs" />
+    <Compile Include="Models\Khoa.cs" />
+    <Compile Include="Models\Lop.cs" />
     <Compile Include="Models\QuanLySinhVienDBcontext.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\SinhhVien.cs" />
     <Compile Include="Models\StringProcess.cs" />
     <Compile Include="Models\UsersRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -217,6 +231,21 @@
     <Content Include="Views\Roles\Details.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Lops\Create.cshtml" />
+    <Content Include="Views\Lops\Delete.cshtml" />
+    <Content Include="Views\Lops\Details.cshtml" />
+    <Content Include="Views\Lops\Edit.cshtml" />
+    <Content Include="Views\Lops\Index.cshtml" />
+    <Content Include="Views\Khoas\Create.cshtml" />
+    <Content Include="Views\Khoas\Delete.cshtml" />
+    <Content Include="Views\Khoas\Details.cshtml" />
+    <Content Include="Views\Khoas\Edit.cshtml" />
+    <Content Include="Views\Khoas\Index.cshtml" />
+    <Content Include="Views\SinhhViens\Create.cshtml" />
+    <Content Include="Views\SinhhViens\Delete.cshtml" />
+    <Content Include="Views\SinhhViens\Details.cshtml" />
+    <Content Include="Views\SinhhViens\Edit.cshtml" />
+    <Content Include="Views\SinhhViens\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -249,6 +278,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111291253383_roleid-account.resx">
       <DependentUpon>202111291253383_roleid-account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111291854066_23456.resx">
+      <DependentUpon>202111291854066_23456.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111291901258_add sinhvien.resx">
+      <DependentUpon>202111291901258_add sinhvien.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

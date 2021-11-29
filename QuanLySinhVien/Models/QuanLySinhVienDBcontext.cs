@@ -14,6 +14,10 @@ namespace QuanLySinhVien.Models
         public DbSet<HocPhan> HocPhans { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Khoa> Khoas { get; set; }              
+        public DbSet<Lop> Lops { get; set; }
+        public DbSet<SinhhVien> SinhhViens { get; set; }
+        
 
         
     }
