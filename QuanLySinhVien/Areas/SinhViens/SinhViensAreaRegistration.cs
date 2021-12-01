@@ -17,7 +17,7 @@ namespace QuanLySinhVien.Areas.SinhViens
             context.MapRoute(
                 "SinhViens_default",
                 "SinhViens/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { area = "Admin", controller = "HomeSV", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
