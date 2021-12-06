@@ -35,7 +35,7 @@ namespace QuanLySinhVien.Areas.SinhViens.Controllers
             }
             return View(diem);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: SinhViens/Diems/Create
         public ActionResult Create()
         {
