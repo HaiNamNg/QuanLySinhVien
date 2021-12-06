@@ -36,7 +36,7 @@ namespace QuanLySinhVien.Areas.SinhViens.Controllers
             }
             return View(lop);
         }
-        [Authorize(Roles = "Sv")]
+        
         // GET: SinhViens/Lops/Create
         public ActionResult Create()
         {

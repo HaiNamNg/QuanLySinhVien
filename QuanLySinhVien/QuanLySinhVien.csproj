@@ -128,6 +128,7 @@
     <Compile Include="Areas\Admins\Controllers\KhoasController.cs" />
     <Compile Include="Areas\Admins\Controllers\LopsController.cs" />
     <Compile Include="Areas\Admins\Controllers\SinhhViensController.cs" />
+    <Compile Include="Areas\SinhViens\Controllers\DiemsController.cs" />
     <Compile Include="Areas\SinhViens\Controllers\HomeSVController.cs" />
     <Compile Include="Areas\SinhViens\Controllers\LopsController.cs" />
     <Compile Include="Areas\SinhViens\SinhViensAreaRegistration.cs" />
@@ -203,9 +204,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Anh\264682757_2190086901139783_5263962880671932396_n.jpg" />
-    <Content Include="Anh\maxresdefault.jpg" />
-    <Content Include="Anh\tải xuống.png" />
+    <Content Include="Image\264682757_2190086901139783_5263962880671932396_n.jpg" />
+    <Content Include="Image\maxresdefault.jpg" />
+    <Content Include="Image\tải xuống.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -263,6 +264,11 @@
     <Content Include="Areas\Admins\Views\SinhhViens\Details.cshtml" />
     <Content Include="Areas\Admins\Views\SinhhViens\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\SinhhViens\Index.cshtml" />
+    <Content Include="Areas\SinhViens\Views\Diems\Create.cshtml" />
+    <Content Include="Areas\SinhViens\Views\Diems\Delete.cshtml" />
+    <Content Include="Areas\SinhViens\Views\Diems\Details.cshtml" />
+    <Content Include="Areas\SinhViens\Views\Diems\Edit.cshtml" />
+    <Content Include="Areas\SinhViens\Views\Diems\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\ckeditor.php" />
     <Content Include="Scripts\ckeditor\ckeditor_basic.js" />
