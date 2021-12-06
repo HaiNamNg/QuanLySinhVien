@@ -6,11 +6,11 @@ using System.Web.Mvc;
 
 namespace QuanLySinhVien.Areas.SinhViens.Controllers
 {
-    [Authorize(Roles = "SV")]
-    public class HomeSvController : Controller
+    [Authorize(Roles = "Sv")]
+    public class HomeSVController : Controller
     {
-        // GET: SinhViens/HomeSv
         
+        // GET: SinhViens/HomeSV
         public ActionResult Index()
         {
             return View();

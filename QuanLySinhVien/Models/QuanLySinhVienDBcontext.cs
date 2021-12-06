@@ -17,9 +17,9 @@ namespace QuanLySinhVien.Models
         public DbSet<Khoa> Khoas { get; set; }              
         public DbSet<Lop> Lops { get; set; }
         public DbSet<SinhhVien> SinhhViens { get; set; }
-        
+        public DbSet<Diem> Diems { get; set; }
 
-        
+        public System.Data.Entity.DbSet<QuanLySinhVien.Models.GiaoVien> GiaoViens { get; set; }
     }
 }
 //DESKTOP-GIPHEE4\SQLEXPRESS

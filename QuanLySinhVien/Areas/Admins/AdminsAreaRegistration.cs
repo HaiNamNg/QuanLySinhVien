@@ -17,7 +17,7 @@ namespace QuanLySinhVien.Areas.Admins
             context.MapRoute(
                 "Admins_default",
                 "Admins/{controller}/{action}/{id}",
-                new { area = "Admin", controller = "HomeAdmin", action = "Index", id = UrlParameter.Optional }
+                new { area = "Admins", controller = "HomeAdmin", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

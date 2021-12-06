@@ -26,7 +26,7 @@ namespace QuanLySinhVien.Controllers
         {
             if (ModelState.IsValid)
             {
-                //ma hoa mk trc  khi luu vao dtbs
+                //Mã Hóa mật khẩu trước khi cho vào database
                 acc.Password = encry.PasswordEncrytion(acc.Password);
                 db.Accounts.Add(acc);
                 db.SaveChanges();
@@ -34,61 +34,26 @@ namespace QuanLySinhVien.Controllers
             }
             return View(acc);
         }
-        [HttpGet]
-        [AllowAnonymous]
         public ActionResult Login(string returnUrl)
+
         {
-            if (CheckSession() != 0)
+            if (CheckSession() == 1)
+
             {
-                return RedirectTolocal(returnUrl);
+
+                return RedirectToAction("Index", "HomeAdmin", new { Area = "Admins" });
+            }
+            else if (CheckSession() == 2)
+
+            {
+                return RedirectToAction("Index", "HomeSV", new { Area = "SinhViens" });
+
             }
             ViewBag.ReturnUrl = returnUrl;
             return View();
+
         }
 
-        [AllowAnonymous]
-        [HttpPost]
-
-        public ActionResult Login(Account acc, string returnUrl)
-
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(acc.Username) && !string.IsNullOrEmpty(acc.Password))
-                {
-
-                    using (var db = new QuanLySinhVienDBcontext())
-
-                    {
-                        var passToMD5 = strPro.GetMD5(acc.Password);
-                        var account = db.Accounts.Where(m => m.Username.Equals(acc.Username) && m.Password.Equals(passToMD5)).Count();
-                        if (account == 1)
-                        {
-                            FormsAuthentication.SetAuthCookie(acc.Username, false);
-                            Session["idUser"] = acc.Username;
-                            Session["roleUser"] = acc.RoleID;
-                            return RedirectTolocal(returnUrl);
-                        }
-
-                        ModelState.AddModelError("", "Thông tin đăng nhập chưa chính xác");
-
-                    }
-                }
-                ModelState.AddModelError("", "Username and password is required.");
-            }
-
-            catch
-            {
-                ModelState.AddModelError("", "Hệ thống đang được bảo trì, vui lòng liên hệ với quản trị viên");
-            }
-            return View(acc);
-        }
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
-        }
-        //ktra ng dung dn quyen gi 
         private int CheckSession()
         {
             using (var db = new QuanLySinhVienDBcontext())
@@ -107,15 +72,49 @@ namespace QuanLySinhVien.Controllers
                         {
                             return 2;
                         }
-
                     }
-
                 }
-
             }
-
             return 0;
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+
+        public ActionResult Login(Account acc, string returnUrl)
+
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(acc.Username) && !string.IsNullOrEmpty(acc.Password))
+                {
+
+                    using (var db = new QuanLySinhVienDBcontext())
+
+                    {
+                        var passToMD5 = strPro.GetMD5(acc.Password);
+                        var account = db.Accounts.Where(m => m.Username.Equals(acc.Username) && m.Password.Equals(passToMD5)).Count();
+                        if (account == 1)
+                        {
+                            FormsAuthentication.SetAuthCookie(acc.Username, false);
+                            Session["idUser"] = acc.Username;
+                            return RedirectTolocal(returnUrl);
+                        }
+
+                        ModelState.AddModelError("", "Thông tin đăng nhập chưa chính xác");
+
+                    }
+                }
+                ModelState.AddModelError("", "Username and password is required.");
+            }
+
+            catch
+            {
+                ModelState.AddModelError("", "Hệ thống đang được bảo trì, vui lòng liên hệ với quản trị viên");
+            }
+            return View(acc);
+        }
+
         private ActionResult RedirectTolocal(string returnUrl)
         {
             if (string.IsNullOrEmpty(returnUrl) || returnUrl == "/")
@@ -126,7 +125,7 @@ namespace QuanLySinhVien.Controllers
                 }
                 else if (CheckSession() == 2)
                 {
-                    return RedirectToAction("Index", "HomeSv", new { Area = "SinhViens" });
+                    return RedirectToAction("Index", "HomeSV", new { Area = "SinhViens" });
                 }
             }
             if (Url.IsLocalUrl(returnUrl))
@@ -136,7 +135,15 @@ namespace QuanLySinhVien.Controllers
             else
             {
                 return RedirectToAction("Index", "Home");
+
             }
+
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session["iduser"] = null;
+            return RedirectToAction("Login", "Account");
         }
     }
 }

@@ -16,19 +16,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Admin", "Index", "HomeAdmin", new { area = "Admins" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("HocPhan", "Index", "HocPhans", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Khoa", "Index", "Khoas", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Lop", "Index", "Lops", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("SinhhVien", "Index", "SinhhViens", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("HocPhan", "Index", "HocPhans", new { area = "Admins" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Khoa", "Index", "Khoas", new { area = "Admins" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Lớp", "Index", "Lops", new { area = "Admins" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Điểm", "Index", "Diems", new { area = "Admins" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Giảng Viên", "Index", "GiaoViens", new { area = "Admins" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("SinhhVien", "Index", "SinhhViens", new { area = "Admins" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("Phân Quyền", "Index", "Roles", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Đăng Ký", "Register", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("Đăng Xuất", "Logout", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("SinhVien", "Index", "HomeSv", new { area = "SinhViens" }, new { @class = "navbar-brand" })</li>
+
 
 
 
@@ -47,6 +48,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
 </body>
 </html>
 
